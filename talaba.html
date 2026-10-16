@@ -39,7 +39,7 @@ nav{position:fixed;z-index:5;left:0;right:0;bottom:0;display:flex;background:var
 nav button{flex:1;min-height:52px;background:none;border:0;border-radius:12px;color:var(--mut);font-weight:700;font-size:11px;cursor:pointer}
 nav button b{display:block;font-size:20px;line-height:1.2}nav button.on{color:var(--ink);background:var(--bg)}
 main{max-width:640px;margin:0 auto;padding:18px 16px 110px}
-@media(min-width:900px){nav{top:0;right:auto;width:200px;flex-direction:column;justify-content:flex-start;gap:6px;padding:20px 10px;border:0;border-right:1px solid var(--ln)}nav button{flex:none;text-align:left;font-size:15px;padding:0 14px;display:flex;gap:10px;align-items:center}nav button b{font-size:18px}main{margin-left:200px;max-width:none;padding:28px 36px 40px}.wrap{max-width:720px;margin:0 auto}}
+
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
 .ava{width:42px;height:42px;border-radius:50%;background:var(--p);color:var(--on);display:grid;place-items:center;font-weight:800;flex:none}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
@@ -80,6 +80,17 @@ main{max-width:640px;margin:0 auto;padding:18px 16px 110px}
 @media(min-width:600px){.sheet{align-items:center}.sheet .card{border-radius:20px}}
 .qb{background:#fff;border-radius:14px;padding:10px;width:180px;height:180px;margin:12px auto 6px}.qb svg{width:100%;height:100%;display:block}
 .kv{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--ln)}.kv:last-child{border:0}.kv span{color:var(--mut)}.kv b{text-align:right}
+
+body{background-image:radial-gradient(700px 320px at 95% -60px,rgba(91,143,208,.20),transparent);background-repeat:no-repeat}
+.card{box-shadow:0 1px 2px rgba(27,54,93,.05),0 10px 28px rgba(27,54,93,.06)}
+:root[data-theme=dark] .card{box-shadow:none}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .card{box-shadow:none}}
+h2{display:flex;align-items:center;gap:8px;letter-spacing:-.01em}h2:before{content:"";width:4px;height:16px;border-radius:3px;background:var(--b2)}
+.tile{transition:transform .15s,box-shadow .15s}.tile:hover{box-shadow:0 8px 22px rgba(27,54,93,.10)}.tile:active,.btn:active{transform:scale(.98)}
+.hero{position:relative;overflow:hidden}.hero:after{content:"";position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.09)}.hero>*{position:relative;z-index:1}
+nav{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--sf) 92%,transparent)}
+nav button{transition:background .2s,color .2s}nav button.on{color:var(--p);background:color-mix(in srgb,var(--p) 14%,transparent)}
+@media(min-width:700px){nav{left:50%;right:auto;transform:translateX(-50%);width:100%;max-width:720px;border:1px solid var(--ln);border-bottom:0;border-radius:20px 20px 0 0}main{max-width:720px}}
 </style></head><body>
 
 <!-- 1. KIRISH -->
@@ -110,7 +121,7 @@ main{max-width:640px;margin:0 auto;padding:18px 16px 110px}
 <!-- 3. ILOVA -->
 <div id="app" class="hid">
 <main><div class="wrap">
- <section id="t0"></section><section id="t1" class="hid"></section><section id="t2" class="hid"></section><section id="t3" class="hid"></section>
+ <section id="t0"></section><section id="t1" class="hid"></section><section id="t2" class="hid"></section><section id="t3" class="hid"></section><section id="t4" class="hid"></section>
 </div></main>
 <nav id="nv"></nav>
 </div>
@@ -126,7 +137,7 @@ var S={1:[["08:00","09:20","Soliq huquqi","Ma'ruza","A-201"],["09:30","10:50","Y
 5:[["09:30","10:50","Yuridik shaxslarni soliqqa tortish","Amaliy","A-109"],["11:00","12:20","Soliq huquqi","Amaliy","A-302"]]};
 var TP={"Soliq huquqi":["Soliq huquqining predmeti va usuli","Soliq majburiyati va uning bajarilishi","Soliq nazorati shakllari"],"Yuridik shaxslarni soliqqa tortish":["Foyda solig'i hisob-kitobi","QQS: to'lovchilar va ob'yekt","Soliq imtiyozlari"],"Soliq tizimida dasturiy mahsullar":["Elektron hisob-faktura","Soliq hisobotini topshirish dasturlari","Soliq xizmati axborot tizimlari"],"Kelajak soati":["Kelajak soati: yo'nalish tanlash","Kelajak soati: muhokama"]};
 var DN=["Yakshanba","Dushanba","Seshanba","Chorshanba","Payshanba","Juma","Shanba"],MN=["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentabr","oktabr","noyabr","dekabr"],SEM=new Date(2026,8,1);
-var M={cards:[{n:"Uzcard",no:"8600 •••• •••• 4417",b:482500,c:"linear-gradient(135deg,#1B365D,#3B6DB0)"},{n:"Humo",no:"9860 •••• •••• 0758",b:1250000,c:"linear-gradient(135deg,#0F6B55,#22A06B)"},{n:"Visa",no:"4231 •••• •••• 9082",b:96000,c:"linear-gradient(135deg,#4B3A9A,#7C5CD6)"}],at:12400},C={total:21000000,paid:14000000,date:"1-dekabr, 2026"};
+var M={cards:[{n:"Uzcard",no:"8600 •••• •••• 4417",b:482500,c:"linear-gradient(135deg,#1B365D,#3B6DB0)"},{n:"Humo",no:"9860 •••• •••• 0758",b:1250000,c:"linear-gradient(135deg,#0F6B55,#22A06B)"},{n:"Visa",no:"4231 •••• •••• 9082",b:96000,c:"linear-gradient(135deg,#4B3A9A,#7C5CD6)"}],at:12400},C={total:21000000,paid:14000000,date:"1-dekabr, 2026"},Dm={total:2250000,paid:1350000,date:"25-oktabr, 2026",room:"2-turarjoy, 214-xona"};
 var fmt=n=>n.toLocaleString("ru-RU").replace(/\u00a0/g," ")+" so'm",tot=()=>M.cards.reduce((a,c)=>a+c.b,0);
 function toast(m){var t=$("ts");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2400)}
 function show(id){["v1","v2","app"].forEach(x=>$(x).classList.toggle("hid",x!=id))}
@@ -164,9 +175,9 @@ async function start(){
 $("fr").onclick=start;$("fk").onclick=()=>{stop();cb()};$("fc").onclick=()=>{stop();show(back)};
 
 /* navigatsiya, rejim, chiqish */
-var T=[["Asosiy","⌂"],["Jadval","▦"],["Hamyon","▣"],["Shaxsiy","◔"]];
-$("nv").innerHTML=T.map((t,i)=>`<button onclick="go(${i})"><b>${t[1]}</b>${t[0]}</button>`).join("");
-function go(i){for(var j=0;j<4;j++)$("t"+j).classList.toggle("hid",i!=j);[].forEach.call($("nv").children,(b,j)=>b.classList.toggle("on",i==j));window.scrollTo(0,0)}
+var T=[["Asosiy","⌂",0],["Ta'lim","✎",4],["Jadval","▦",1],["Hamyon","▣",2],["Shaxsiy","◔",3]],O=[0,4,1,2,3];
+$("nv").innerHTML=T.map((t,i)=>`<button onclick="go(${t[2]})"><b>${t[1]}</b>${t[0]}</button>`).join("");
+function go(i){for(var j=0;j<5;j++)$("t"+j).classList.toggle("hid",i!=j);[].forEach.call($("nv").children,(b,j)=>b.classList.toggle("on",i==O[j]));window.scrollTo(0,0)}
 function theme(){var r=document.documentElement,dk=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=dk?"light":"dark"}
 function out(){U=null;scn={};perm=false;D=new Date();clearInterval(qt);$("id").value="";$("le").textContent="";show("v1")}
 function enter(){render();show("app");go(0)}
@@ -206,27 +217,50 @@ function r0(){var L=S[new Date().getDay()]||[];
  <h2>Bugungi darslar</h2><div class="card">${rows(new Date())}</div>`}
 
 /* hamyon */
-function qr(id){var s=Math.floor(Math.random()*1e9),r=()=>(s=(s*1103515245+12345)&0x7fffffff)/0x7fffffff,h="";
+function qr(id,seed){var s=seed||Math.floor(Math.random()*1e9),r=()=>(s=(s*1103515245+12345)&0x7fffffff)/0x7fffffff,h="";
  for(var y=0;y<21;y++)for(var x=0;x<21;x++){var f=(x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13),on;
   if(f){var ax=x>13?x-14:x,ay=y>13?y-14:y;on=ax==0||ax==6||ay==0||ay==6||(ax>1&&ax<5&&ay>1&&ay<5)}else on=r()>.5;
   if(on)h+=`<rect x="${x}" y="${y}" width="1" height="1"/>`}
  $(id).innerHTML=`<svg viewBox="0 0 21 21" fill="#1B365D" shape-rendering="crispEdges">${h}</svg>`}
 function mq(){var b=$("mb");if(!b.classList.toggle("hid")){qr("mqr");var c=30;clearInterval(qt);qt=setInterval(()=>{c--;if(c<=0){c=30;qr("mqr")}$("mc").textContent=c},1000)}else clearInterval(qt)}
 function bus(){face(()=>{if(M.at<1400)toast("ATTO balansi yetarli emas");else{M.at-=1400;toast("Avtobus: 1 400 so'm yechildi")}show("app");go(2);r2()},"Avtobus QR kodini skanerlang","app","To'lov qabul qilindi")}
-function r2(){var p=Math.round(C.paid/C.total*100);
+function r2(){var p=Math.round(C.paid/C.total*100),dp=Math.round(Dm.paid/Dm.total*100);
  $("t2").innerHTML=`<h1>Hamyon</h1><h2>Kartalar</h2><div class="hs">${M.cards.map(c=>`<div class="cd" style="background:${c.c}"><div class="tr" style="justify-content:space-between"><b style="font-size:15px">${c.n}</b><span style="font-size:12px;opacity:.8">Faol</span></div><div><b>${fmt(c.b)}</b><div style="letter-spacing:.12em;opacity:.85;font-size:13px;margin-top:4px">${c.no}</div></div></div>`).join("")}</div>
  <div id="at"><h2>Transport to'lovi (ATTO)</h2><div class="card"><div class="kv"><span>Ta'rif</span><b>Talaba tarifi <span class="tag ok">Ulangan</span></b></div><div class="kv"><span>Bir safar</span><b>1 400 so'm</b></div><div class="kv"><span>ATTO balansi</span><b>${fmt(M.at)}</b></div>
  <div class="acts"><button class="btn" onclick="mq()">Metro uchun QR</button><button class="btn s" onclick="bus()">Avtobus: skanerlash</button></div>
  <div id="mb" class="hid" style="text-align:center"><div class="qb" id="mqr"></div><span class="mut">Turniketga tuting. QR <b id="mc">30</b> soniyada yangilanadi</span></div></div></div>
  <h2>Kontrakt to'lovi</h2><div class="card"><div class="tr" style="justify-content:space-between"><span class="mut">To'langan</span><b>${p}%</b></div><div class="pg"><i style="width:${p}%"></i></div>
- <div class="kv"><span>Umumiy summa</span><b>${fmt(C.total)}</b></div><div class="kv"><span>To'langan qismi</span><b style="color:var(--ok)">${fmt(C.paid)}</b></div><div class="kv"><span>To'lanmagan qismi</span><b style="color:var(--er)">${fmt(C.total-C.paid)}</b></div><div class="kv"><span>Yechib olish sanasi</span><b>${C.date}</b></div></div>
+ <div class="kv"><span>Umumiy summa</span><b>${fmt(C.total)}</b></div><div class="kv"><span>To'langan qismi</span><b style="color:var(--ok)">${fmt(C.paid)}</b></div><div class="kv"><span>To'lanmagan qismi</span><b style="color:var(--er)">${fmt(C.total-C.paid)}</b></div><div class="kv"><span>Yechib olish sanasi</span><b>${C.date}</b></div><button class="btn" style="margin-top:12px" onclick="sheet('pk')">Kontrakt uchun to'lash</button></div>
+ <h2>Yotoqxona</h2><div class="card"><div class="kv"><span>Joylashuv</span><b>${Dm.room}</b></div><div class="tr" style="justify-content:space-between;margin-top:8px"><span class="mut">To'langan</span><b>${dp}%</b></div><div class="pg"><i style="width:${dp}%"></i></div>
+ <div class="kv"><span>Semestr to'lovi</span><b>${fmt(Dm.total)}</b></div><div class="kv"><span>To'langan qismi</span><b style="color:var(--ok)">${fmt(Dm.paid)}</b></div><div class="kv"><span>Qoldiq</span><b style="color:var(--er)">${fmt(Dm.total-Dm.paid)}</b></div><div class="kv"><span>Keyingi to'lov muddati</span><b>${Dm.date}</b></div><button class="btn" style="margin-top:12px" onclick="sheet('py')">Yotoqxona uchun to'lash</button></div>
  <h2>Xizmatlar</h2><div class="sv"><button class="tile" style="--a:#22A06B" onclick="sheet('tr')"><div class="ic">⇄</div><b>O'tkazma</b><span>Kartadan kartaga</span></button><button class="tile" style="--a:#3B82F6" onclick="sheet('yo')"><div class="ic">⌂</div><b>Yotoqxona</b><span>Ariza topshirish</span></button><button class="tile" style="--a:#F59E0B" onclick="sheet('ij')"><div class="ic">▤</div><b>Ijara</b><span>Shartnoma arizasi</span></button><button class="tile" style="--a:#7C5CD6" onclick="sheet('kt')"><div class="ic">✎</div><b>Kontrakt</b><span>Shartnoma arizasi</span></button></div>`}
-function sheet(k){var N={tr:"Kartadan kartaga o'tkazma",yo:"Yotoqxona uchun ariza",ij:"Ijara shartnomasi uchun ariza",kt:"Kontrakt shartnomasi uchun ariza"},b=k=="tr"?`<label for="s1">Qaysi kartadan</label><select id="s1">${M.cards.map((c,i)=>`<option value="${i}">${c.n} · ${fmt(c.b)}</option>`).join("")}</select><label for="s2">Qabul qiluvchi karta raqami</label><input id="s2" inputmode="numeric" maxlength="19" placeholder="16 xonali raqam"><label for="s3">Summa (so'm)</label><input id="s3" inputmode="numeric" placeholder="50000">`:`<label for="s2">Izoh (ixtiyoriy)</label><input id="s2" placeholder="Qo'shimcha ma'lumot">`;
- $("sh").innerHTML=`<div class="card"><div class="tr" style="justify-content:space-between"><h2 style="margin:0">${N[k]}</h2><button class="btn s sm" aria-label="Yopish" onclick="shut()">✕</button></div>${b}<button class="btn" style="margin-top:20px" onclick="send('${k}')">${k=="tr"?"O'tkazish":"Ariza yuborish"}</button><p class="err" id="se" role="alert"></p></div>`;$("sh").classList.remove("hid")}
+function sheet(k){var N={tr:"Kartadan kartaga o'tkazma",yo:"Yotoqxona uchun ariza",ij:"Ijara shartnomasi uchun ariza",kt:"Kontrakt shartnomasi uchun ariza",pk:"Kontrakt to'lovi",py:"Yotoqxona to'lovi"},
+ sl=`<label for="s1">${k=="tr"?"Qaysi kartadan":"To'lov kartasi"}</label><select id="s1">${M.cards.map((c,i)=>`<option value="${i}">${c.n} · ${fmt(c.b)}</option>`).join("")}</select>`,
+ py=k=="pk"||k=="py",rem=k=="pk"?C.total-C.paid:Dm.total-Dm.paid,
+ b=k=="tr"?sl+`<label for="s2">Qabul qiluvchi karta raqami</label><input id="s2" inputmode="numeric" maxlength="19" placeholder="16 xonali raqam"><label for="s3">Summa (so'm)</label><input id="s3" inputmode="numeric" placeholder="50000">`:py?sl+`<p class="mut" style="margin-top:12px">Qoldiq: <b>${fmt(rem)}</b> · muddat: ${k=="pk"?C.date:Dm.date}</p><label for="s3">Summa (so'm)</label><input id="s3" inputmode="numeric" value="${rem}">`:`<label for="s2">Izoh (ixtiyoriy)</label><input id="s2" placeholder="Qo'shimcha ma'lumot">`;
+ $("sh").innerHTML=`<div class="card"><div class="tr" style="justify-content:space-between"><h2 style="margin:0">${N[k]}</h2><button class="btn s sm" aria-label="Yopish" onclick="shut()">✕</button></div>${b}<button class="btn" style="margin-top:20px" onclick="send('${k}')">${k=="tr"?"O'tkazish":py?"To'lash":"Ariza yuborish"}</button><p class="err" id="se" role="alert"></p></div>`;$("sh").classList.remove("hid")}
 function shut(){$("sh").classList.add("hid")}
-function send(k){if(k=="tr"){var i=+$("s1").value,no=$("s2").value.replace(/\D/g,""),a=+$("s3").value.replace(/\D/g,"");
- if(no.length!=16)return $("se").textContent="Karta raqami 16 ta raqam bo'lishi kerak.";if(!a)return $("se").textContent="Summani kiriting.";if(a>M.cards[i].b)return $("se").textContent="Kartada mablag' yetarli emas.";
- M.cards[i].b-=a;shut();r0();r2();toast(fmt(a)+" o'tkazildi")}else{shut();toast("Ariza yuborildi")}}
+function send(k){var e=m=>$("se").textContent=m;
+ if(k=="tr"){var i=+$("s1").value,no=$("s2").value.replace(/\D/g,""),a=+$("s3").value.replace(/\D/g,"");
+  if(no.length!=16)return e("Karta raqami 16 ta raqam bo'lishi kerak.");if(!a)return e("Summani kiriting.");if(a>M.cards[i].b)return e("Kartada mablag' yetarli emas.");
+  M.cards[i].b-=a;shut();r0();r2();toast(fmt(a)+" o'tkazildi")}
+ else if(k=="pk"||k=="py"){var i=+$("s1").value,a=+$("s3").value.replace(/\D/g,""),rem=k=="pk"?C.total-C.paid:Dm.total-Dm.paid;
+  if(!rem)return e("To'lanmagan qoldiq yo'q.");if(!a)return e("Summani kiriting.");if(a>rem)return e("Summa qoldiqdan oshmasin.");if(a>M.cards[i].b)return e("Kartada mablag' yetarli emas.");
+  M.cards[i].b-=a;if(k=="pk")C.paid+=a;else Dm.paid+=a;shut();r0();r2();toast("To'lov qabul qilindi: "+fmt(a))}
+ else{shut();toast("Ariza yuborildi")}}
+
+/* ta'lim */
+var TS=[["Soliq tizimida dasturiy mahsullar","Topshiriq: Amaliy",new Date(2026,10,15,19,20),1],["Soliq huquqi","Referat: Soliq majburiyati",new Date(2026,9,25,23,59),0],["Yuridik shaxslarni soliqqa tortish","Amaliy ish: Foyda solig'i hisobi",new Date(2026,10,1,18,0),0],["Kelajak soati","Esse: Kasbiy yo'nalish",new Date(2026,9,10,20,0),0]],
+LB=[["Soliq huquqi","O'zbekiston Respublikasi Soliq kodeksi","Qonun"],["Yuridik shaxslarni soliqqa tortish","Soliq huquqi bo'yicha o'quv qo'llanma","Qo'llanma"],["Soliq tizimida dasturiy mahsullar","Soliq hisobotini topshirish yo'riqnomasi","Yo'riqnoma"]];
+var dl=d=>`${d.getDate()}-${MN[d.getMonth()]}, ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+function sendT(i){TS[i][3]=1;r4();toast("Topshiriq yuborildi")}
+function r4(){var n=new Date();
+ $("t4").innerHTML=`<h1>Ta'lim</h1>
+ <h2>Topshiriqlar</h2><div class="card">${TS.map((t,i)=>{var s=t[3]?`<span class="tag ok">Yuborilgan</span>`:n>t[2]?`<span class="tag no">Muddati o'tgan</span>`:`<span class="tag bl">Kutilmoqda</span>`;
+  return`<div class="row"><div class="g"><b>${t[1]}</b><span class="mut">${t[0]}</span><div class="mut" style="margin-top:2px">Muddati: <b style="color:var(--ink)">${dl(t[2])}</b></div></div><div style="display:grid;gap:6px;justify-items:end">${s}${t[3]||n>t[2]?"":`<button class="btn sm" onclick="sendT(${i})">Yuborish</button>`}</div></div>`}).join("")}</div>
+ <h2>Adabiyotlar</h2><div class="card">${LB.map(b=>`<div class="row"><div class="ic" style="--a:#7C5CD6;margin:0;flex:none">▤</div><div class="g"><b>${b[1]}</b><span class="mut">${b[0]} · ${b[2]}</span></div><button class="btn s sm" onclick="toast('Fayl tez orada ulanadi')">Ochish</button></div>`).join("")}</div>
+ <h2>Kutubxonaga a'zolik</h2><div class="card" style="text-align:center"><div class="qb" id="lq"></div><b>${U.name}</b><div class="mut">A'zolik raqami: KT-${U.id.slice(-6)} · <span style="color:var(--ok);font-weight:700">Faol</span></div><p class="mut" style="margin-top:6px">Kutubxonada skanerga ko'rsating</p></div>
+ <p class="mut" style="margin-top:10px">Topshiriqlar va adabiyotlar namuna (demo) ma'lumotlar.</p>`;qr("lq",U.s)}
 
 /* shaxsiy */
 function r3(){$("t3").innerHTML=`<h1>Shaxsiy ma'lumotlar</h1><div class="hero" style="margin-top:14px;display:block"><small>F.I.SH.</small><b style="font-size:22px">${U.name}</b><small style="display:block;margin-top:6px">ID ${U.id}</small></div>
@@ -234,5 +268,5 @@ function r3(){$("t3").innerHTML=`<h1>Shaxsiy ma'lumotlar</h1><div class="hero" s
  <h2>O'zlashtirish</h2><div class="chips"><div class="card chip"><b>${U.gpa}</b><span class="mut">GPA / 5</span></div><div class="card chip"><b>60</b><span class="mut">Kredit</span></div><div class="card chip"><b>0/12</b><span class="mut">Qarz</span></div></div>
  <p class="mut" style="margin-top:10px">Ba'zi ko'rsatkichlar namuna (demo) ma'lumotlar.</p>
  <div class="acts" style="margin-top:18px"><button class="btn s" onclick="theme()">Tungi / kunduzgi rejim</button><button class="btn s" onclick="out()">Hisobdan chiqish</button></div>`}
-function render(){r0();r1();r2();r3()}
+function render(){r0();r1();r2();r3();r4()}
 </script></body></html>
