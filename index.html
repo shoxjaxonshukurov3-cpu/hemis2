@@ -3,53 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HEMIS 3.0</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<title>TalabA</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22 aria-hidden=%22true%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%231B365D%22/%3E%3Cstop offset=%221%22 stop-color=%22%235B8FD0%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22url%28%23g%29%22/%3E%3Cpolygon points=%2232%2C13 57%2C26 32%2C39 7%2C26%22 fill=%22%23fff%22/%3E%3Cpath d=%22M18 32v9c0 4 6 8 14 8s14-4 14-8v-9l-14 7z%22 fill=%22%23fff%22 opacity=%22.85%22/%3E%3Cpath d=%22M54 27v13%22 stroke=%22%23F5C518%22 stroke-width=%223%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%2254%22 cy=%2243%22 r=%223.5%22 fill=%22%23F5C518%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --paper:#FCFAF6; --ink:#1B2A49; --muted:#6B7280; --line:#E1DED6; --pencil:#F5C518; --accent:#B3261E; color-scheme:light; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --paper:#17181B; --ink:#F1F1EC; --muted:#A3A8B0; --line:#34373D; --accent:#FF8A80; color-scheme:dark; }
-  }
-  :root[data-theme="dark"] { --paper:#17181B; --ink:#F1F1EC; --muted:#A3A8B0; --line:#34373D; --accent:#FF8A80; color-scheme:dark; }
-  * { box-sizing:border-box; }
-  html { min-height:100%; }
-  body {
-    margin:0; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
-    background:var(--paper); color:var(--ink);
-    font-family:"Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; line-height:1.5;
-    padding:calc(2rem + env(safe-area-inset-top, 0px)) calc(1.25rem + env(safe-area-inset-right, 0px)) calc(2rem + env(safe-area-inset-bottom, 0px)) calc(1.25rem + env(safe-area-inset-left, 0px));
-    text-align:center;
-  }
-  main { width:100%; max-width:760px; }
-  h1 { margin:0; font-weight:800; letter-spacing:-0.035em; line-height:1; font-size:clamp(3.5rem, 15vw, 8rem); }
-  .sub { color:var(--muted); font-size:clamp(1.125rem, 3vw, 1.5rem); margin:0.75rem 0 0; }
-  .roles { display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:1rem; margin:3rem 0 0; }
-  .btn {
-    display:block; padding:1.25rem 1rem; border-radius:14px; text-decoration:none;
-    background:var(--ink); color:var(--paper); font-weight:600; font-size:1.25rem;
-    border-bottom:5px solid var(--pencil); transition:transform .15s ease, background .15s ease, color .15s ease;
-  }
-  .btn:hover { background:var(--pencil); color:#23262B; transform:translateY(-2px); }
-  .btn:focus-visible, .back:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
-  .back { display:inline-block; margin:2.5rem 0 0; color:var(--ink); font-weight:600; text-decoration:none; border-bottom:2px solid var(--pencil); padding-bottom:1px; }
-  .note { color:var(--muted); margin:1.25rem 0 0; }
-  footer { margin-top:3rem; font-size:.875rem; }
-  footer a { color:var(--muted); text-decoration:none; }
-  footer a:hover { color:var(--ink); }
-  @media (prefers-reduced-motion: reduce) { .btn { transition:none; } .btn:hover { transform:none; } }
+*{box-sizing:border-box;margin:0}
+:root{--bg:#F2F5FA;--sf:#fff;--ink:#1B365D;--mut:#667791;--ln:#DDE4EE;--p:#1B365D;--b2:#5B8FD0;--pencil:#F5C518;--glow:rgba(91,143,208,.28);--glow2:rgba(245,197,24,.16);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--glow:rgba(91,143,208,.22);--glow2:rgba(245,197,24,.08);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--glow:rgba(91,143,208,.22);--glow2:rgba(245,197,24,.08);color-scheme:dark}
+html{min-height:100%}
+body{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--bg);color:var(--ink);font:500 16px/1.5 Manrope,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+ padding:calc(2rem + env(safe-area-inset-top,0px)) calc(1.25rem + env(safe-area-inset-right,0px)) calc(2rem + env(safe-area-inset-bottom,0px)) calc(1.25rem + env(safe-area-inset-left,0px));
+ background-image:radial-gradient(700px 440px at 100% -80px,var(--glow),transparent),radial-gradient(540px 380px at -10% 105%,var(--glow2),transparent);background-repeat:no-repeat}
+main{width:100%;max-width:760px;animation:up .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+.logo{width:clamp(84px,18vw,116px);height:auto;filter:drop-shadow(0 16px 30px rgba(27,54,93,.35));animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+h1{margin-top:1rem;font-weight:800;letter-spacing:-.04em;line-height:1;font-size:clamp(3.5rem,15vw,7.5rem)}
+h1 b{color:var(--b2)}
+.sub{color:var(--mut);font-size:clamp(1.05rem,3vw,1.4rem);margin-top:.75rem}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2.6rem}
+.btn{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:1.4rem 1rem;border-radius:20px;text-decoration:none;background:var(--sf);color:var(--ink);border:1px solid var(--ln);font-weight:800;font-size:1.15rem;
+ box-shadow:0 18px 40px -26px rgba(27,54,93,.55);border-bottom:4px solid var(--pencil);transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease}
+.btn span{font-size:1.9rem;line-height:1}
+.btn small{font-weight:500;font-size:.8rem;color:var(--mut);transition:color .18s}
+.btn:hover{background:linear-gradient(135deg,var(--p),var(--b2));color:#fff;transform:translateY(-3px);box-shadow:0 22px 40px -20px var(--b2)}
+.btn:hover small{color:rgba(255,255,255,.85)}
+.btn:focus-visible,footer a:focus-visible{outline:3px solid var(--b2);outline-offset:3px}
+footer{margin-top:2.6rem;font-size:.875rem}
+footer a{color:var(--mut);text-decoration:none;font-weight:700}footer a:hover{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.btn,.btn:hover{transition:none;transform:none}main,.logo{animation:none}}
 </style>
 </head>
 <body>
 <main>
-  <h1>HEMIS 3.0</h1>
+  <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B365D"/><stop offset="1" stop-color="#5B8FD0"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lg1)"/><polygon points="32,13 57,26 32,39 7,26" fill="#fff"/><path d="M18 32v9c0 4 6 8 14 8s14-4 14-8v-9l-14 7z" fill="#fff" opacity=".85"/><path d="M54 27v13" stroke="#F5C518" stroke-width="3" stroke-linecap="round"/><circle cx="54" cy="43" r="3.5" fill="#F5C518"/></svg>
+  <h1>Talab<b>A</b></h1>
   <p class="sub">Xush kelibsiz</p>
   <nav class="roles" aria-label="Rolni tanlang">
-    <a class="btn" href="/administrator/">Administrator</a>
-    <a class="btn" href="/oqituvchi/">O'qituvchi</a>
-    <a class="btn" href="/talaba/">Talaba</a>
+    <a class="btn" href="/administrator/"><span>🛡️</span>Administrator<small>Boshqaruv paneli</small></a>
+    <a class="btn" href="/oqituvchi/"><span>👩‍🏫</span>O'qituvchi<small>Dars va davomat</small></a>
+    <a class="btn" href="/talaba/"><span>🎓</span>Talaba<small>Jadval, hamyon, CV</small></a>
   </nav>
   <footer><a href="https://qalamtarosh.uz">&larr; qalamtarosh.uz</a></footer>
 </main>
