@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Asosiy | HEMIS 3.0</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("hemis_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root{--bg:#F2F5FA;--sf:#fff;--ink:#1B365D;--mut:#667791;--ln:#DDE4EE;--p:#1B365D;--on:#fff;--b2:#5B8FD0;--ok:#22A06B;--wn:#F59E0B;--er:#E5484D;--bl:#3B82F6;--vi:#7C5CD6;--dot:rgba(27,54,93,.13);--blob1:rgba(91,143,208,.34);--blob2:rgba(124,92,214,.16);--sh:0 1px 2px rgba(27,54,93,.05),0 12px 30px rgba(27,54,93,.07);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;--dot:rgba(141,160,189,.16);--blob1:rgba(59,130,246,.22);--blob2:rgba(124,92,214,.22);--sh:none;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;--dot:rgba(141,160,189,.16);--blob1:rgba(59,130,246,.22);--blob2:rgba(124,92,214,.22);--sh:none;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:500 15px/1.45 Manrope,system-ui,sans-serif;min-height:100vh;padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+a,button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--b2);outline-offset:2px}
+.mut{color:var(--mut);font-size:13px}
+h1{font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.15}
+h2{font-size:17px;font-weight:800;letter-spacing:-.01em}
+
+/* ===== kod bilan chizilgan fon ===== */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg:before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--dot) 1.2px,transparent 1.5px);background-size:24px 24px;-webkit-mask-image:linear-gradient(#000 0,transparent 62%);mask-image:linear-gradient(#000 0,transparent 62%)}
+.bg i{position:absolute;border-radius:50%;filter:blur(64px)}
+.bg .b1{width:360px;height:360px;right:-120px;top:-110px;background:var(--blob1);animation:drift 22s ease-in-out infinite alternate}
+.bg .b2{width:300px;height:300px;left:-130px;top:46%;background:var(--blob2);animation:drift 28s ease-in-out infinite alternate-reverse}
+.bg svg{position:absolute;right:-150px;top:-150px;width:420px;height:420px;color:var(--b2);opacity:.35;animation:spin 140s linear infinite}
+@keyframes drift{to{transform:translate(-40px,50px) scale(1.12)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== sahifa ===== */
+main{max-width:720px;margin:0 auto;padding:18px 16px 118px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.who{display:flex;align-items:center;gap:12px;min-width:0}
+.ava{width:52px;height:52px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--b2),var(--vi),var(--ok));flex:none}
+.ava span{width:100%;height:100%;border-radius:50%;background:var(--sf);display:grid;place-items:center;font-weight:800;color:var(--ink);font-size:16px}
+.chips{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap}
+.chips span{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;background:color-mix(in srgb,var(--b2) 16%,transparent);color:var(--ink)}
+.tr{display:flex;gap:8px;align-items:center}
+.ib,.xb{min-height:48px;border:1px solid var(--ln);background:var(--sf);border-radius:14px;cursor:pointer;font-weight:700;transition:transform .15s}
+.ib{width:48px;display:grid;place-items:center}.xb{padding:0 16px}
+.ib:active,.xb:active{transform:scale(.96)}
+.ib svg{width:22px;height:22px}
+
+/* ===== balans kartasi (asosiy ko'rinish) ===== */
+.hero{position:relative;overflow:hidden;border-radius:26px;padding:22px;color:#fff;min-height:208px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#16305A 0%,#2C5A96 58%,#3B82F6 135%);--mx:70%;--my:0%;box-shadow:0 18px 40px rgba(27,54,93,.28)}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.22),transparent 52%),repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 1px,transparent 1px 16px)}
+.hero>*{position:relative}
+.hero .art{position:absolute;right:-8px;top:-6px;width:230px;height:154px;pointer-events:none}
+.hero small{display:block;font-size:13px;font-weight:700;opacity:.82;max-width:52%}
+.hero .bal{display:block;font-size:clamp(30px,8.4vw,44px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-top:auto;padding-top:56px}
+.hero .bal em{font-style:normal;font-size:.46em;font-weight:700;letter-spacing:0;opacity:.8;margin-left:6px}
+.hero .low{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero .dots{display:flex;gap:6px;align-items:center;font-size:13px;font-weight:700;opacity:.9}
+.hero .dots i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.glass{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:14px;text-decoration:none;font-weight:800;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .15s,background .2s}
+.glass:hover{background:rgba(255,255,255,.28)}.glass:active{transform:scale(.97)}
+.art .spin{transform-origin:150px 62px;transform-box:view-box;animation:spin 40s linear infinite}
+.art .f1,.art .f2,.art .f3{animation:float 6s ease-in-out infinite}
+.art .f2{animation-duration:7.5s;animation-delay:-2s}.art .f3{animation-duration:5s;animation-delay:-1s}
+@keyframes float{50%{transform:translateY(-9px)}}
+
+/* ===== tugmalar ===== */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.tile{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:132px;padding:15px;border-radius:20px;border:1px solid var(--ln);background:var(--sf);text-decoration:none;box-shadow:var(--sh);transition:transform .15s,border-color .2s;--a:var(--bl)}
+.tile:before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 100% 0%,color-mix(in srgb,var(--a) 22%,transparent),transparent 62%)}
+.tile:active{transform:scale(.97)}
+.tile:hover{border-color:color-mix(in srgb,var(--a) 55%,var(--ln))}
+.tile>*{position:relative}
+.tile .ic{position:absolute;left:15px;top:15px;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--a);color:#fff;box-shadow:0 8px 18px color-mix(in srgb,var(--a) 40%,transparent)}
+.tile .ic svg{width:24px;height:24px}
+.tile .ta{position:absolute;right:-12px;top:-12px;width:104px;height:104px;color:var(--a);opacity:.55}
+.tile b{display:block;font-size:19px;font-weight:800;letter-spacing:-.015em}
+.tile span{color:var(--mut);font-size:13px}
+
+/* ===== bugungi darslar ===== */
+.sec{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:26px 2px 10px}
+.sec .mut{font-weight:700}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:8px 16px;box-shadow:var(--sh)}
+.ls{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--ln);position:relative}
+.ls:last-child{border:0}
+.ls:before{content:"";width:4px;align-self:stretch;border-radius:4px;background:var(--bl);flex:none}
+.ls.ok:before{background:var(--ok)}.ls.no:before{background:var(--er)}
+.ls .tm{width:48px;flex:none;line-height:1.25}.ls .tm b{display:block;font-size:14px}.ls .tm span{font-size:12px;color:var(--mut);font-weight:700}
+.ls .g{flex:1;min-width:0}.ls .g b{display:block;font-size:15px;line-height:1.3}
+.pgb{height:5px;border-radius:5px;background:var(--ln);margin-top:8px;overflow:hidden}
+.pgb i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--bl),var(--b2));transition:width 1s linear}
+.tag{font-size:12px;font-weight:800;padding:5px 11px;border-radius:20px;white-space:nowrap;flex:none}
+.tag.ok{background:rgba(34,160,107,.16);color:var(--ok)}.tag.no{background:rgba(229,72,77,.14);color:var(--er)}
+.tag.bl{background:rgba(59,130,246,.16);color:var(--bl)}
+.tag .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--bl);margin-right:6px;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.7);opacity:.35}}
+.empty{display:flex;align-items:center;gap:14px;padding:16px 0}
+.empty svg{width:56px;height:56px;flex:none}
+.note{margin:16px 4px 0;font-size:12.5px;color:var(--mut)}
+
+/* ===== pastki navigatsiya ===== */
+.nv{position:fixed;z-index:5;left:0;right:0;bottom:0;display:flex;background:color-mix(in srgb,var(--sf) 90%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--ln);padding:6px 6px calc(8px + env(safe-area-inset-bottom,0))}
+.nv a{flex:1;min-height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:14px;text-decoration:none;color:var(--mut);font-weight:700;font-size:11px;transition:background .2s,color .2s}
+.nv a svg{width:23px;height:23px}
+.nv a[aria-current]{color:var(--p);background:color-mix(in srgb,var(--p) 14%,transparent)}
+.nv a[aria-current] svg{animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(.6)}}
+@media(min-width:700px){.nv{left:50%;right:auto;transform:translateX(-50%);width:100%;max-width:720px;border:1px solid var(--ln);border-bottom:0;border-radius:20px 20px 0 0}}
+
+/* ===== sahifa ochilishi: bitta tartibli ketma-ketlik ===== */
+.rise{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,0)*90ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important}
+ .rise{opacity:1;transform:none}
+}
+</style></head><body>
+
+<div class="bg" aria-hidden="true">
+ <i class="b1"></i><i class="b2"></i>
+ <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".6"><circle cx="100" cy="100" r="96" stroke-dasharray="2 5"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="52" stroke-dasharray="1 4"/><circle cx="100" cy="100" r="30"/><path d="M100 4v192M4 100h192"/></svg>
+</div>
+
+<main id="m"></main>
+<nav class="nv" id="nv" aria-label="Bo'limlar"></nav>
+
+<script>
+/* ===== kirgan talabani tekshirish (ma'lumot talaba/index.html'dan sessionStorage orqali keladi) ===== */
+function ses(){try{var u=JSON.parse(sessionStorage.getItem("hemis_talaba"));return u&&u.id&&u.name&&typeof u.s=="number"?u:null}catch(x){return null}}
+var U=ses();
+if(!U){location.replace("/talaba/")}else{start()}
+
+function start(){
+var $=i=>document.getElementById(i);
+/* NAMUNA (demo) ma'lumotlar: dars jadvali HEMIS'dagi jadvaldan, kartalar balansi va davomat holati namuna */
+var S={1:[["08:00","09:20","Soliq huquqi","Ma'ruza","A-201"],["09:30","10:50","Yuridik shaxslarni soliqqa tortish","Ma'ruza","A-201"],["11:00","12:20","Yuridik shaxslarni soliqqa tortish","Amaliy","A-212"]],
+2:[["08:00","09:20","Soliq tizimida dasturiy mahsullar","Ma'ruza","A-201"],["09:30","10:50","Yuridik shaxslarni soliqqa tortish","Ma'ruza","A-201"],["11:00","12:20","Soliq tizimida dasturiy mahsullar","Amaliy","A-215"]],
+3:[["08:00","09:20","Soliq huquqi","Ma'ruza","A-201"],["09:30","10:50","Soliq tizimida dasturiy mahsullar","Ma'ruza","A-201"]],
+4:[["08:00","09:20","Kelajak soati","Ma'ruza","A-215"],["09:30","10:50","Soliq tizimida dasturiy mahsullar","Amaliy","A-215"]],
+5:[["09:30","10:50","Yuridik shaxslarni soliqqa tortish","Amaliy","A-109"],["11:00","12:20","Soliq huquqi","Amaliy","A-302"]]};
+var TP={"Soliq huquqi":["Soliq huquqining predmeti va usuli","Soliq majburiyati va uning bajarilishi","Soliq nazorati shakllari"],"Yuridik shaxslarni soliqqa tortish":["Foyda solig'i hisob-kitobi","QQS: to'lovchilar va ob'yekt","Soliq imtiyozlari"],"Soliq tizimida dasturiy mahsullar":["Elektron hisob-faktura","Soliq hisobotini topshirish dasturlari","Soliq xizmati axborot tizimlari"],"Kelajak soati":["Kelajak soati: yo'nalish tanlash","Kelajak soati: muhokama"]};
+var DN=["Yakshanba","Dushanba","Seshanba","Chorshanba","Payshanba","Juma","Shanba"],MN=["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentabr","oktabr","noyabr","dekabr"],SEM=new Date(2026,8,1);
+var M={cards:[{n:"Uzcard",b:482500,c:"#5B8FD0"},{n:"Humo",b:1250000,c:"#22A06B"},{n:"Visa",b:96000,c:"#7C5CD6"}]};
+var scn={};
+/* Hamyon sahifasi balansni o'zgartirsa, u shu kalit bilan saqlaydi: {"cards":[b0,b1,b2]}. Davomat: {"0":true} */
+try{var sm=JSON.parse(sessionStorage.getItem("hemis_m"));if(sm&&Array.isArray(sm.cards))sm.cards.forEach((b,i)=>{if(M.cards[i]&&typeof b=="number")M.cards[i].b=b})}catch(x){}
+try{var ss=JSON.parse(sessionStorage.getItem("hemis_scn"));if(ss&&typeof ss=="object")scn=ss}catch(x){}
+
+var fmt=n=>n.toLocaleString("ru-RU").replace(/\u00a0/g," "),tot=()=>M.cards.reduce((a,c)=>a+c.b,0);
+var esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+var cap=w=>w.charAt(0)+w.slice(1).toLowerCase(),ini=()=>U.name.split(" ").slice(0,2).map(w=>w[0]).join("");
+var pad=n=>(n<10?"0":"")+n;
+
+/* jadval va davomat (namuna: har bir talaba uchun ID'dan hisoblanadi) */
+var hv=n=>{n=Math.imul(n^U.s,2654435761);n^=n>>>15;n=Math.imul(n,2246822519);n^=n>>>13;return(n>>>0)/4294967296};
+var dn=d=>Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),mm=s=>{var a=s.split(":");return a[0]*60+ +a[1]};
+function info(d,i,l){var k=dn(d)*7+i,p=TP[l[2]];return{ok:hv(k)>=.13,why:hv(k+99)<.55?"Sababli":"Sababsiz",topic:p[Math.floor(hv(k+5)*p.length)]}}
+function status(d,i,l){var a=dn(d),b=dn(new Date()),n=new Date(),m=n.getHours()*60+n.getMinutes(),f=info(d,i,l).ok?"ok":"no";
+ if(a<b)return f;if(a>b)return"up";if(m>=mm(l[1]))return scn[i]?"ok":f;if(m>=mm(l[0]))return scn[i]?"ok":"now";return"up"}
+var TG={ok:'<span class="tag ok">Qatnashgan</span>',no:'<span class="tag no">Qatnashmagan</span>',up:'<span class="tag bl">Rejada</span>',now:'<span class="tag bl"><i class="dot"></i>Davom etmoqda</span>'};
+
+/* ===== kod bilan chizilgan rasmlar ===== */
+var IC={
+ da:'<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="11" r="2.5"/><path d="M8.5 16.2c.8-1.4 2-2 3.5-2s2.7.6 3.5 2"/>',
+ ka:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h4"/>',
+ tr:'<rect x="4" y="3" width="16" height="14" rx="3"/><path d="M4 11h16M8 21v-4M16 21v-4"/><circle cx="8.5" cy="14" r=".6"/><circle cx="15.5" cy="14" r=".6"/>',
+ sh:'<circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/>',
+ ho:'<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+ ta:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/>',
+ ja:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ ha:'<path d="M3 8a2 2 0 0 1 2-2h13v3"/><rect x="3" y="8" width="18" height="12" rx="3"/><circle cx="16.5" cy="14" r="1"/>',
+ mo:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>',
+ su:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/>'
+};
+var svg=(k,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w||1.9}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k]}</svg>`;
+var TA={
+ da:'<circle cx="60" cy="40" r="14"/><circle cx="60" cy="40" r="28" stroke-dasharray="3 5"/><circle cx="60" cy="40" r="42"/><path d="M60 -6v92M14 40h92"/>',
+ ka:'<rect x="22" y="14" width="64" height="40" rx="9" transform="rotate(-12 54 34)"/><rect x="34" y="30" width="64" height="40" rx="9" transform="rotate(8 66 50)"/><path d="M40 52h18" transform="rotate(8 66 50)"/>',
+ tr:'<path d="M10 88C34 80 38 46 62 44S92 56 112 22" stroke-dasharray="4 5"/><circle cx="10" cy="88" r="6"/><circle cx="62" cy="44" r="6"/><circle cx="108" cy="24" r="6"/>',
+ sh:'<circle cx="62" cy="38" r="20"/><path d="M18 96c4-26 20-36 44-36s40 10 44 36"/><circle cx="62" cy="38" r="34" stroke-dasharray="2 6"/>'
+};
+var ta=k=>`<svg class="ta" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">${TA[k]}</svg>`;
+
+var ART='<svg class="art" viewBox="0 0 230 154" fill="none" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FE0B5"/><stop offset="1" stop-color="#5B8FD0"/></linearGradient></defs>'
++'<g class="spin"><circle cx="150" cy="62" r="56" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 7"/></g>'
++'<circle cx="150" cy="62" r="36" stroke="#fff" stroke-opacity=".16"/><circle cx="150" cy="62" r="76" stroke="#fff" stroke-opacity=".08"/>'
++'<g class="f1"><g transform="rotate(-10 156 66)"><rect x="112" y="40" width="88" height="54" rx="11" fill="url(#cg)"/><rect x="112" y="54" width="88" height="10" fill="#0B1F3F" fill-opacity=".28"/><rect x="122" y="76" width="22" height="9" rx="3" fill="#fff" fill-opacity=".75"/><circle cx="184" cy="80" r="6" fill="#F59E0B"/><circle cx="177" cy="80" r="6" fill="#E5484D" fill-opacity=".85"/></g></g>'
++'<g class="f2"><circle cx="204" cy="26" r="10" fill="#F59E0B"/><circle cx="204" cy="26" r="5.5" stroke="#fff" stroke-opacity=".7" stroke-width="1.5"/></g>'
++'<circle class="f3" cx="112" cy="116" r="6" fill="#fff" fill-opacity=".35"/><circle class="f3" cx="92" cy="30" r="3.5" fill="#fff" fill-opacity=".45"/></svg>';
+
+/* ===== sahifa ===== */
+function lessons(){var n=new Date(),L=S[n.getDay()]||[],m=n.getHours()*60+n.getMinutes();
+ if(n<SEM||!L.length)return`<div class="empty"><svg viewBox="0 0 56 56" fill="none" stroke="var(--b2)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="28" cy="28" r="9"/><path d="M28 7v5M28 44v5M7 28h5M44 28h5M13 13l3.5 3.5M39.500 39.500L43 43M13 43l3.500-3.500M39.500 16.500L43 13"/></svg><div><b>Bugun darslar yo'q</b><div class="mut">Jadvalda ertangi darslarni ko'ring.</div></div></div>`;
+ return L.map((l,i)=>{var s=status(n,i,l),a=mm(l[0]),b=mm(l[1]),p=m>=a&&m<b?Math.max(3,Math.round((m-a)/(b-a)*100)):0;
+  return`<div class="ls ${s}"><div class="tm"><b>${l[0]}</b><span>${l[1]}</span></div><div class="g"><b>${esc(l[2])}</b><span class="mut">${esc(l[3])}, ${esc(l[4])}</span>${p?`<div class="pgb"><i style="width:${p}%"></i></div>`:""}</div>${TG[s]}</div>`}).join("")}
+
+function page(){var n=new Date(),L=S[n.getDay()]||[],nm=cap(U.name.split(" ")[1]||U.name);
+ $("m").innerHTML=`
+ <header class="top rise" style="--i:0"><div class="who"><div class="ava"><span>${esc(ini())}</span></div><div style="min-width:0"><h1>Salom, ${esc(nm)}</h1><div class="chips"><span>ST-50/24</span><span>5-semestr</span></div></div></div>
+  <div class="tr"><button class="ib" id="th" aria-label="Tungi va kunduzgi rejim">${svg("mo")}</button><button class="xb" id="ex">Chiqish</button></div></header>
+
+ <section class="hero rise" style="--i:1" id="hr" aria-label="Umumiy balans">${ART}
+  <small>Umumiy balans, ${M.cards.length} ta karta</small>
+  <span class="bal" id="bal" aria-label="${fmt(tot())} so'm">0<em>so'm</em></span>
+  <div class="low"><div class="dots">${M.cards.map(c=>`<span style="display:inline-flex;align-items:center;gap:5px;margin-right:6px"><i style="background:${c.c}"></i>${c.n}</span>`).join("")}</div><a class="glass" href="/talaba/hamyon/">Hamyon</a></div>
+ </section>
+
+ <div class="tiles">
+  <a class="tile rise" style="--i:2;--a:#3B82F6" href="/talaba/jadval/"><div class="ic">${svg("da")}</div>${ta("da")}<b>Davomat</b><span>FACE va jadval</span></a>
+  <a class="tile rise" style="--i:3;--a:#22A06B" href="/talaba/hamyon/"><div class="ic">${svg("ka")}</div>${ta("ka")}<b>Kartalar</b><span>Balans, o'tkazma</span></a>
+  <a class="tile rise" style="--i:4;--a:#F59E0B" href="/talaba/hamyon/#transport"><div class="ic">${svg("tr")}</div>${ta("tr")}<b>Transport</b><span>Metro va avtobus</span></a>
+  <a class="tile rise" style="--i:5;--a:#7C5CD6" href="/talaba/shaxsiy/"><div class="ic">${svg("sh")}</div>${ta("sh")}<b>Shaxsiy</b><span>Ma'lumotlar</span></a>
+ </div>
+
+ <div class="sec rise" style="--i:6"><h2>Bugungi darslar</h2><span class="mut">${DN[n.getDay()]}, ${n.getDate()}-${MN[n.getMonth()]}</span></div>
+ <div class="card rise" style="--i:6" id="ls">${lessons()}</div>
+ <p class="note rise" style="--i:7">Kartalar balansi va davomat holati namuna (demo) ma'lumotlar.</p>`;
+ count();
+ $("th").onclick=theme;$("ex").onclick=out;
+ var h=$("hr");if(matchMedia("(hover:hover)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches)h.addEventListener("pointermove",e=>{var r=h.getBoundingClientRect();h.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");h.style.setProperty("--my",((e.clientY-r.top)/r.height*100)+"%")});
+ setIcon()}
+
+/* balans raqamlari sanab chiqiladi (harakat sozlamasi o'chiq bo'lsa darhol ko'rsatiladi) */
+function count(){var el=$("bal"),to=tot(),put=v=>{el.innerHTML=fmt(v)+"<em>so'm</em>"};
+ if(matchMedia("(prefers-reduced-motion:reduce)").matches){put(to);return}
+ var t0=null,dur=1300;function f(t){if(t0===null)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);put(Math.round(to*e));if(k<1)requestAnimationFrame(f)}
+ setTimeout(()=>requestAnimationFrame(f),350)}
+
+/* tungi rejim, chiqish */
+function isDark(){var r=document.documentElement;return r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+function setIcon(){$("th").innerHTML=svg(isDark()?"su":"mo")}
+function theme(){var r=document.documentElement,v=isDark()?"light":"dark";r.dataset.theme=v;try{localStorage.setItem("hemis_theme",v)}catch(x){}setIcon()}
+function out(){try{["hemis_talaba","hemis_m","hemis_scn"].forEach(k=>sessionStorage.removeItem(k))}catch(x){}location.replace("/talaba/")}
+
+/* pastki navigatsiya: har bo'lim alohida sahifa */
+var T=[["Asosiy","/talaba/asosiy/","ho"],["Ta'lim","/talaba/talim/","ta"],["Jadval","/talaba/jadval/","ja"],["Hamyon","/talaba/hamyon/","ha"],["Shaxsiy","/talaba/shaxsiy/","sh"]];
+$("nv").innerHTML=T.map((t,i)=>`<a href="${t[1]}"${i==0?' aria-current="page"':""}>${svg(t[2],1.8)}${t[0]}</a>`).join("");
+
+page();
+setInterval(()=>{$("ls").innerHTML=lessons()},60000);
+}
+</script></body></html>
