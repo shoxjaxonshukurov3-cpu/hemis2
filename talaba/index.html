@@ -1,56 +1,73 @@
 <!DOCTYPE html>
 <html lang="uz"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Talaba | HEMIS 3.0</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<title>Kirish | TalabA</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22 aria-hidden=%22true%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%231B365D%22/%3E%3Cstop offset=%221%22 stop-color=%22%235B8FD0%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22url%28%23g%29%22/%3E%3Cpolygon points=%2232%2C13 57%2C26 32%2C39 7%2C26%22 fill=%22%23fff%22/%3E%3Cpath d=%22M18 32v9c0 4 6 8 14 8s14-4 14-8v-9l-14 7z%22 fill=%22%23fff%22 opacity=%22.85%22/%3E%3Cpath d=%22M54 27v13%22 stroke=%22%23F5C518%22 stroke-width=%223%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%2254%22 cy=%2243%22 r=%223.5%22 fill=%22%23F5C518%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}
-:root{--bg:#F2F5FA;--sf:#fff;--ink:#1B365D;--mut:#667791;--ln:#DDE4EE;--p:#1B365D;--on:#fff;--b2:#5B8FD0;--ok:#22A06B;--wn:#F59E0B;--er:#E5484D;color-scheme:light}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;color-scheme:dark}}
-:root[data-theme=dark]{--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font:500 15px/1.45 Manrope,system-ui,sans-serif;min-height:100vh;padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0);background-image:radial-gradient(700px 320px at 95% -60px,rgba(91,143,208,.20),transparent);background-repeat:no-repeat}
+:root{--bg:#F2F5FA;--sf:#fff;--ink:#1B365D;--mut:#667791;--ln:#DDE4EE;--p:#1B365D;--on:#fff;--b2:#5B8FD0;--ok:#22A06B;--wn:#F59E0B;--er:#E5484D;--glow:rgba(91,143,208,.28);--glow2:rgba(245,197,24,.16);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;--glow:rgba(91,143,208,.22);--glow2:rgba(245,197,24,.08);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;--glow:rgba(91,143,208,.22);--glow2:rgba(245,197,24,.08);color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:500 15px/1.45 Manrope,system-ui,sans-serif;min-height:100vh;padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0);background-image:radial-gradient(640px 420px at 100% -80px,var(--glow),transparent),radial-gradient(520px 360px at -10% 105%,var(--glow2),transparent);background-repeat:no-repeat}
 button,input,select{font:inherit;color:inherit}
 .hid{display:none!important}
 :focus-visible{outline:3px solid var(--b2);outline-offset:2px}
-h1{font-size:26px;font-weight:800;letter-spacing:-.02em}
-.mut{color:var(--mut);font-size:13px}
-.btn{display:block;width:100%;min-height:50px;border:0;border-radius:14px;background:var(--p);color:var(--on);font-weight:700;cursor:pointer;padding:12px;transition:transform .15s}
-.btn.s{background:var(--sf);color:var(--ink);border:1px solid var(--ln)}.btn:disabled{opacity:.5}.btn:active{transform:scale(.98)}
-.gate{min-height:100vh;display:grid;place-items:center;padding:20px;text-align:center}
-.gate .box{width:100%;max-width:400px}
-.gate h1{font-size:44px}.gate form{text-align:left;margin-top:24px}
-label{display:block;font-weight:700;margin:16px 0 6px}
-input,select{width:100%;min-height:50px;padding:0 14px;border:2px solid var(--ln);border-radius:12px;background:var(--sf)}
-input:focus,select:focus{border-color:var(--b2);outline:none}
-.err{color:var(--er);min-height:22px;margin-top:10px;text-align:center;font-weight:600}
-.cam{width:240px;height:240px;border-radius:50%;margin:24px auto 16px;overflow:hidden;position:relative;border:4px solid var(--ln);background:#0B1220;transition:border-color .3s}
+.gate{min-height:100vh;display:grid;place-items:center;padding:20px}
+.box{width:100%;max-width:420px;animation:up .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+.brand{text-align:center}
+.logo{width:92px;height:92px;filter:drop-shadow(0 14px 28px rgba(27,54,93,.35));animation:fl 5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+h1{font-size:46px;font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:14px}
+h1 b{color:var(--b2)}
+.mut{color:var(--mut);font-size:14px}
+.tag{margin-top:8px}
+.card{margin-top:26px;background:var(--sf);border:1px solid var(--ln);border-radius:24px;padding:22px 20px 20px;box-shadow:0 18px 50px -22px rgba(27,54,93,.45)}
+label{display:block;font-weight:700;font-size:13px;margin:14px 0 6px}
+label:first-of-type{margin-top:0}
+input,select{width:100%;min-height:52px;padding:0 14px;border:2px solid var(--ln);border-radius:14px;background:var(--bg);transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus{border-color:var(--b2);outline:none;box-shadow:0 0 0 4px var(--glow)}
+input{font-size:18px;letter-spacing:.12em;font-weight:700}input::placeholder{letter-spacing:0;font-weight:500;font-size:15px;color:var(--mut)}
+.btn{display:block;width:100%;min-height:52px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--b2));color:#fff;font-weight:800;font-size:16px;cursor:pointer;padding:12px;transition:transform .15s,box-shadow .2s;box-shadow:0 10px 24px -10px var(--b2)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .btn:not(.s){color:#07101F}}
+:root[data-theme=dark] .btn:not(.s){color:#07101F}
+.btn.s{background:var(--sf);color:var(--ink);border:1px solid var(--ln);box-shadow:none}.btn:disabled{opacity:.55}.btn:active{transform:scale(.98)}
+.err{color:var(--er);min-height:22px;margin-top:10px;text-align:center;font-weight:600;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.chips span{font-size:12px;font-weight:700;color:var(--mut);border:1px solid var(--ln);background:var(--sf);border-radius:999px;padding:6px 12px}
+.back{display:inline-block;margin-top:18px;color:var(--mut);font-weight:700;font-size:14px;text-decoration:none}.back:hover{color:var(--ink)}
+.center{text-align:center}
+.fh{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-top:0}
+.cam{width:250px;height:250px;border-radius:50%;margin:26px auto 16px;overflow:hidden;position:relative;border:4px solid var(--ln);background:#0B1220;transition:border-color .3s,box-shadow .3s}
 .cam video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
-.cam.scan{border-color:var(--wn)}.cam.ok{border-color:var(--ok)}
+.cam.scan{border-color:var(--wn);box-shadow:0 0 0 8px rgba(245,158,11,.14)}.cam.ok{border-color:var(--ok);box-shadow:0 0 0 8px rgba(34,160,107,.16)}
 .cam i{position:absolute;left:0;right:0;height:3px;background:var(--ok);box-shadow:0 0 14px var(--ok);top:0;display:none}
 .cam.scan i{display:block;animation:sc 1.1s ease-in-out infinite alternate}
 @keyframes sc{to{top:calc(100% - 3px)}}
-@media(prefers-reduced-motion:reduce){.cam.scan i{animation:none;top:50%}}
+@media(prefers-reduced-motion:reduce){.cam.scan i{animation:none;top:50%}.logo,.box{animation:none}}
 </style></head><body>
 
 <!-- 1. KIRISH -->
 <section class="gate" id="v1"><div class="box">
- <h1>Talaba</h1><p class="mut">HEMIS 3.0 tizimiga kirish</p>
- <form id="lf" novalidate>
+ <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B365D"/><stop offset="1" stop-color="#5B8FD0"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lg1)"/><polygon points="32,13 57,26 32,39 7,26" fill="#fff"/><path d="M18 32v9c0 4 6 8 14 8s14-4 14-8v-9l-14 7z" fill="#fff" opacity=".85"/><path d="M54 27v13" stroke="#F5C518" stroke-width="3" stroke-linecap="round"/><circle cx="54" cy="43" r="3.5" fill="#F5C518"/></svg><h1>Talab<b>A</b></h1><p class="mut tag">Talaba hayoti — bitta ilovada</p></div>
+ <form id="lf" class="card" novalidate>
   <label for="u">Universitet</label>
   <select id="u"><option>Toshkent davlat iqtisodiyot universiteti</option></select>
   <label for="id">ID login</label>
   <input id="id" inputmode="numeric" maxlength="9" autocomplete="username" placeholder="9 xonali ID" required>
-  <button class="btn" id="lb" type="submit" style="margin-top:22px">Davom etish</button>
+  <button class="btn" id="lb" type="submit" style="margin-top:20px">Davom etish</button>
   <p class="err" id="le" role="alert"></p>
  </form>
- <a class="mut" href="/" style="display:inline-block;margin-top:14px;color:inherit">&larr; HEMIS 3.0</a>
+ <div class="chips" aria-hidden="true"><span>📅 Jadval</span><span>✅ Davomat</span><span>💳 Hamyon</span><span>📄 CV</span></div>
+ <div class="center"><a class="back" href="/">&larr; TalabA</a></div>
 </div></section>
 
 <!-- 2. YUZ SKANERI -->
-<section class="gate hid" id="v2"><div class="box">
- <h1 style="font-size:28px" id="fh">Yuzni tasdiqlash</h1>
- <p class="mut">Kamerangiz faqat skanerlash uchun yoqiladi. Rasm saqlanmaydi va yuborilmaydi.</p>
+<section class="gate hid" id="v2"><div class="box center">
+ <h1 class="fh" id="fh">Yuzni tasdiqlash</h1>
+ <p class="mut" style="margin-top:8px">Kamerangiz faqat skanerlash uchun yoqiladi. Rasm saqlanmaydi va yuborilmaydi.</p>
  <div class="cam" id="cam"><video id="vd" playsinline muted></video><i></i></div>
  <p class="err" id="fs" style="color:var(--ink)">Kameraga ruxsat bering</p>
  <button class="btn hid" id="fr">Qayta urinish</button>
