@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adabiyotlar | HEMIS 3.0</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("hemis_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root{--bg:#F2F5FA;--sf:#fff;--ink:#1B365D;--mut:#667791;--ln:#DDE4EE;--p:#1B365D;--on:#fff;--b2:#5B8FD0;--ok:#22A06B;--wn:#F59E0B;--er:#E5484D;--bl:#3B82F6;--vi:#7C5CD6;--dot:rgba(27,54,93,.13);--blob1:rgba(91,143,208,.34);--blob2:rgba(124,92,214,.16);--sh:0 1px 2px rgba(27,54,93,.05),0 12px 30px rgba(27,54,93,.07);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;--dot:rgba(141,160,189,.16);--blob1:rgba(59,130,246,.22);--blob2:rgba(124,92,214,.22);--sh:none;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0B1220;--sf:#131C2E;--ink:#EAF0FA;--mut:#8DA0BD;--ln:#243350;--p:#5B8FD0;--on:#07101F;--dot:rgba(141,160,189,.16);--blob1:rgba(59,130,246,.22);--blob2:rgba(124,92,214,.22);--sh:none;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:500 15px/1.45 Manrope,system-ui,sans-serif;min-height:100vh;padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+a,button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--b2);outline-offset:2px}
+.mut{color:var(--mut);font-size:13px}
+h1{font-size:25px;font-weight:800;letter-spacing:-.025em;line-height:1.15}
+h2{font-size:17px;font-weight:800;letter-spacing:-.01em}
+
+/* ===== kod bilan chizilgan fon ===== */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg:before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--dot) 1.2px,transparent 1.5px);background-size:24px 24px;-webkit-mask-image:linear-gradient(#000 0,transparent 62%);mask-image:linear-gradient(#000 0,transparent 62%)}
+.bg i{position:absolute;border-radius:50%;filter:blur(64px)}
+.bg .b1{width:360px;height:360px;right:-120px;top:-110px;background:var(--blob1);animation:drift 22s ease-in-out infinite alternate}
+.bg .b2{width:300px;height:300px;left:-130px;top:46%;background:var(--blob2);animation:drift 28s ease-in-out infinite alternate-reverse}
+.bg svg{position:absolute;right:-150px;top:-150px;width:420px;height:420px;color:var(--b2);opacity:.35;animation:spin 140s linear infinite}
+@keyframes drift{to{transform:translate(-40px,50px) scale(1.12)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== sahifa ===== */
+main{max-width:720px;margin:0 auto;padding:18px 16px 118px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.who{display:flex;align-items:center;gap:12px;min-width:0}
+.ava{width:52px;height:52px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--b2),var(--vi),var(--ok));flex:none}
+.ava span{width:100%;height:100%;border-radius:50%;background:var(--sf);display:grid;place-items:center;font-weight:800;color:var(--ink);font-size:16px}
+.chips{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap}
+.chips span{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;background:color-mix(in srgb,var(--b2) 16%,transparent);color:var(--ink)}
+.tr{display:flex;gap:8px;align-items:center}
+.ib,.xb{min-height:48px;border:1px solid var(--ln);background:var(--sf);border-radius:14px;cursor:pointer;font-weight:700;transition:transform .15s}
+.ib{width:48px;display:grid;place-items:center}.xb{padding:0 16px}
+.ib:active,.xb:active{transform:scale(.96)}
+.ib svg{width:22px;height:22px}
+
+/* ===== bugungi darslar ===== */
+.sec{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:26px 2px 10px}
+.sec .mut{font-weight:700}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:8px 16px;box-shadow:var(--sh)}
+.ls{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--ln);position:relative}
+.ls:last-child{border:0}
+.ls:before{content:"";width:4px;align-self:stretch;border-radius:4px;background:var(--bl);flex:none}
+.ls.ok:before{background:var(--ok)}.ls.no:before{background:var(--er)}
+.ls .tm{width:48px;flex:none;line-height:1.25}.ls .tm b{display:block;font-size:14px}.ls .tm span{font-size:12px;color:var(--mut);font-weight:700}
+.ls .g{flex:1;min-width:0}.ls .g b{display:block;font-size:15px;line-height:1.3}
+.pgb{height:5px;border-radius:5px;background:var(--ln);margin-top:8px;overflow:hidden}
+.pgb i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--bl),var(--b2));transition:width 1s linear}
+.tag{font-size:12px;font-weight:800;padding:5px 11px;border-radius:20px;white-space:nowrap;flex:none}
+.tag.ok{background:rgba(34,160,107,.16);color:var(--ok)}.tag.no{background:rgba(229,72,77,.14);color:var(--er)}
+.tag.bl{background:rgba(59,130,246,.16);color:var(--bl)}
+.tag .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--bl);margin-right:6px;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.7);opacity:.35}}
+.empty{display:flex;align-items:center;gap:14px;padding:16px 0}
+.empty svg{width:56px;height:56px;flex:none}
+.note{margin:16px 4px 0;font-size:12.5px;color:var(--mut)}
+
+/* ===== pastki navigatsiya ===== */
+.nv{position:fixed;z-index:5;left:0;right:0;bottom:0;display:flex;background:color-mix(in srgb,var(--sf) 90%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--ln);padding:6px 6px calc(8px + env(safe-area-inset-bottom,0))}
+.nv a{flex:1;min-height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:14px;text-decoration:none;color:var(--mut);font-weight:700;font-size:11px;transition:background .2s,color .2s}
+.nv a svg{width:23px;height:23px}
+.nv a[aria-current]{color:var(--p);background:color-mix(in srgb,var(--p) 14%,transparent)}
+.nv a[aria-current] svg{animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{transform:scale(.6)}}
+@media(min-width:700px){.nv{left:50%;right:auto;transform:translateX(-50%);width:100%;max-width:720px;border:1px solid var(--ln);border-bottom:0;border-radius:20px 20px 0 0}}
+
+/* ===== sahifa ochilishi: bitta tartibli ketma-ketlik ===== */
+.rise{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,0)*90ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important}
+ .rise{opacity:1;transform:none}
+}
+
+
+.hid{display:none!important}
+a.ib{text-decoration:none}
+.btn{display:block;width:100%;min-height:50px;border:0;border-radius:14px;background:var(--p);color:var(--on);font-weight:700;cursor:pointer;padding:12px;transition:transform .15s}
+.btn.s{background:var(--sf);color:var(--ink);border:1px solid var(--ln)}.btn:active{transform:scale(.98)}
+.btn+.btn{margin-top:10px}
+.go,.ob{min-height:48px;border-radius:14px;padding:0 16px;font-weight:800;cursor:pointer;transition:transform .15s}
+.go{border:0;background:var(--p);color:var(--on)}.ob{border:1px solid var(--ln);background:var(--sf);color:var(--ink)}
+.go:active,.ob:active{transform:scale(.96)}
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(5,10,20,.6);display:flex;align-items:flex-end;justify-content:center}
+.sheet .card{width:100%;max-width:460px;border-radius:24px 24px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom,0));max-height:92vh;overflow:auto;animation:sup .32s cubic-bezier(.2,.7,.2,1)}
+@keyframes sup{from{transform:translateY(46px);opacity:0}}
+.sheet .hd{display:flex;justify-content:space-between;align-items:center;gap:10px}
+@media(min-width:600px){.sheet{align-items:center}.sheet .card{border-radius:24px}}
+.err{color:var(--er);min-height:22px;margin-top:10px;text-align:center;font-weight:600}
+.toast{z-index:40}
+.top{flex-wrap:nowrap}.top>.tr:first-child{min-width:0}.top h1{font-size:23px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:400px){.top .xb{padding:0 12px}}
+.rt .tag{align-self:flex-end}
+
+.hero{position:relative;overflow:hidden;border-radius:26px;padding:22px;color:#fff;min-height:190px;display:flex;flex-direction:column;background:linear-gradient(135deg,#2B2370 0%,#5B3FB8 58%,#7C5CD6 135%);box-shadow:0 18px 40px rgba(76,52,160,.32);--mx:70%;--my:0%}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.22),transparent 52%),repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 1px,transparent 1px 16px)}
+.hero>*{position:relative}
+.hero .art{position:absolute;right:-8px;top:-6px;width:230px;height:154px;pointer-events:none}
+.hero small{display:block;font-size:13px;font-weight:700;opacity:.85;max-width:50%}
+.hero .big{display:block;margin-top:auto;padding-top:62px;font-size:clamp(28px,8vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.hero .hs{display:block;font-size:13px;font-weight:700;opacity:.9;margin-top:6px}
+.art .spin{transform-origin:150px 62px;transform-box:view-box;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.art .f1,.art .f2,.art .f3{animation:float 6s ease-in-out infinite}
+.art .f2{animation-duration:7.5s;animation-delay:-2s}.art .f3{animation-duration:5s;animation-delay:-1s}
+@keyframes float{50%{transform:translateY(-9px)}}
+.fans{display:grid;gap:12px}
+details.fan{background:var(--sf);border:1px solid var(--ln);border-radius:20px;box-shadow:var(--sh);overflow:hidden}
+details.fan summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:72px;padding:12px 16px;cursor:pointer}
+details.fan summary::-webkit-details-marker{display:none}
+details.fan summary .n{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--a,var(--vi));color:#fff;flex:none;font-weight:800;font-size:18px}
+details.fan summary .g{flex:1;min-width:0}details.fan summary .g b{display:block;font-size:16px;line-height:1.3}
+details.fan summary .chv{width:22px;height:22px;color:var(--mut);flex:none;transition:transform .25s}
+details.fan[open] summary .chv{transform:rotate(180deg)}
+details.fan .fb{padding:0 16px 8px}
+.lab{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:6px 0 2px}
+.lr{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--ln)}
+.lr:last-child{border:0}
+.lr .g{flex:1;min-width:0}.lr .g b{display:block;font-size:15px;line-height:1.3}
+.bk{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--vi);color:#fff;flex:none}
+.bk svg{width:22px;height:22px}
+.lr .go{min-height:48px;padding:0 12px;font-size:13.5px}
+.dn{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:color-mix(in srgb,var(--vi) 16%,transparent);color:var(--vi);font-weight:800;flex:none}
+.pv{position:fixed;inset:0;z-index:30;background:#070C18;color:#fff;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top,0)) 14px calc(14px + env(safe-area-inset-bottom,0))}
+.pv .ph{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pv .ph b{font-size:15px;line-height:1.3;min-width:0}.pv .ph span{display:block;font-size:12px;opacity:.7;font-weight:700}
+.pv .ib{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff}
+.pv .stg{flex:1;display:grid;place-items:center;min-height:0;padding:12px 0}
+.sl{width:min(100%,820px);aspect-ratio:16/10;border-radius:24px;padding:clamp(18px,5vw,40px);display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#2B2370,#5B3FB8 60%,#7C5CD6);box-shadow:0 24px 60px rgba(0,0,0,.5);position:relative;overflow:hidden;animation:sin .35s cubic-bezier(.2,.7,.2,1)}
+@keyframes sin{from{opacity:0;transform:translateX(18px)}}
+.sl:after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;border:2px dashed rgba(255,255,255,.18)}
+.sl .tg{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.sl h3{font-size:clamp(22px,5.4vw,40px);font-weight:800;letter-spacing:-.025em;line-height:1.15;margin:10px 0 8px}
+.sl p{font-size:clamp(13px,2.8vw,18px);opacity:.88;font-weight:600}
+.sl ol{margin:10px 0 0 22px;font-size:clamp(15px,3.4vw,24px);font-weight:700;line-height:1.7}
+.sl.wn{background:linear-gradient(135deg,#1B365D,#2C5A96)}
+.pv .ctl{display:flex;align-items:center;justify-content:center;gap:18px}
+.pv .ctl span{font-weight:800;min-width:64px;text-align:center}
+.dts{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.dts i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .2s,transform .2s}.dts i.on{background:#fff;transform:scale(1.3)}
+</style></head><body>
+
+<div class="bg" aria-hidden="true">
+ <i class="b1"></i><i class="b2"></i>
+ <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".6"><circle cx="100" cy="100" r="96" stroke-dasharray="2 5"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="52" stroke-dasharray="1 4"/><circle cx="100" cy="100" r="30"/><path d="M100 4v192M4 100h192"/></svg>
+</div>
+
+<main id="m"></main>
+<nav class="nv" id="nv" aria-label="Bo'limlar"></nav>
+<div class="pv hid" id="pv" role="dialog" aria-modal="true" aria-label="Prezentatsiya"></div>
+<div class="toast" id="ts" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== kirgan talabani tekshirish (ma'lumot talaba/index.html'dan sessionStorage orqali keladi) ===== */
+function ses(){try{var u=JSON.parse(sessionStorage.getItem("hemis_talaba"));return u&&u.id&&u.name&&typeof u.s=="number"?u:null}catch(x){return null}}
+var U=ses();
+if(!U){location.replace("/talaba/")}else{start()}
+
+function start(){
+var $=i=>document.getElementById(i);
+var MN=["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentabr","oktabr","noyabr","dekabr"];
+/* NAMUNA (demo) ma'lumotlar: topshiriqlar, adabiyotlar, mavzular va kitoblar. TS: [fan, nomi, muddati, yuborilgan(1/0)] */
+var TS=[["Soliq tizimida dasturiy mahsullar","Topshiriq: Amaliy",new Date(2026,10,15,19,20),1],["Soliq huquqi","Referat: Soliq majburiyati",new Date(2026,9,25,23,59),0],["Yuridik shaxslarni soliqqa tortish","Amaliy ish: Foyda solig'i hisobi",new Date(2026,10,1,18,0),0],["Kelajak soati","Esse: Kasbiy yo'nalish",new Date(2026,9,10,20,0),0]],
+LB=[["Soliq huquqi","O'zbekiston Respublikasi Soliq kodeksi","Qonun"],["Yuridik shaxslarni soliqqa tortish","Soliq huquqi bo'yicha o'quv qo'llanma","Qo'llanma"],["Soliq tizimida dasturiy mahsullar","Soliq hisobotini topshirish yo'riqnomasi","Yo'riqnoma"]],
+TP={"Soliq huquqi":["Soliq huquqining predmeti va usuli","Soliq majburiyati va uning bajarilishi","Soliq nazorati shakllari"],"Yuridik shaxslarni soliqqa tortish":["Foyda solig'i hisob-kitobi","QQS: to'lovchilar va ob'yekt","Soliq imtiyozlari"],"Soliq tizimida dasturiy mahsullar":["Elektron hisob-faktura","Soliq hisobotini topshirish dasturlari","Soliq xizmati axborot tizimlari"],"Kelajak soati":["Kelajak soati: yo'nalish tanlash","Kelajak soati: muhokama"]},
+/* BK: olingan kitoblar [nomi, fan, turi, olingan, qaytarish muddati, qaytarilgan sana yoki null]; AV: berilmagan (kutubxonada mavjud) [nomi, fan, turi, nusxa] */
+BK=[["O'zbekiston Respublikasi Soliq kodeksi","Soliq huquqi","Qonun",new Date(2026,8,8),new Date(2026,9,8),null],["Soliq huquqi bo'yicha o'quv qo'llanma","Yuridik shaxslarni soliqqa tortish","Qo'llanma",new Date(2026,9,12),new Date(2026,10,12),null],["Soliq hisobotini topshirish yo'riqnomasi","Soliq tizimida dasturiy mahsullar","Yo'riqnoma",new Date(2026,8,2),new Date(2026,9,2),new Date(2026,8,20)]],
+AV=[["Soliq huquqi: darslik","Soliq huquqi","Darslik",4],["Yuridik shaxslarni soliqqa tortish: amaliy mashqlar","Yuridik shaxslarni soliqqa tortish","Qo'llanma",2],["Soliq tizimida dasturiy mahsullar: laboratoriya ishlari","Soliq tizimida dasturiy mahsullar","Qo'llanma",3],["Kelajak soati: metodik qo'llanma","Kelajak soati","Qo'llanma",5]];
+/* yuborilgan topshiriqlar shu brauzer oynasida saqlanadi: {"1":1} yoki {"1":{k:"rasm|fayl|video",n:"fayl nomi",s:bayt}}. Fayl mazmuni hech qayerga yuborilmaydi */
+var SUB={};
+try{var sv=JSON.parse(sessionStorage.getItem("hemis_ts"));if(sv&&typeof sv=="object")Object.keys(sv).forEach(k=>{if(TS[k]){TS[k][3]=1;var v=sv[k];if(v&&typeof v=="object"&&typeof v.n=="string")SUB[k]={k:["rasm","fayl","video"].indexOf(v.k)>-1?v.k:"fayl",n:v.n.slice(0,120),s:+v.s||0}}})}catch(x){}
+function saveTS(){var o={};TS.forEach((t,i)=>{if(t[3])o[i]=SUB[i]||1});try{sessionStorage.setItem("hemis_ts",JSON.stringify(o))}catch(x){}}
+
+var esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+var pad=n=>(n<10?"0":"")+n,dl=d=>`${d.getDate()}-${MN[d.getMonth()]}, ${pad(d.getHours())}:${pad(d.getMinutes())}`,dd=d=>`${d.getDate()}-${MN[d.getMonth()]}`;
+var rm=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
+function toast(m){var t=$("ts");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2800)}
+function left(d){var ms=d-new Date(),a=Math.abs(ms),k=Math.floor(a/864e5),s=Math.floor(a%864e5/36e5),m=Math.floor(a%36e5/6e4),
+ t=k>0?k+" kun"+(s?" "+s+" soat":""):s>0?s+" soat"+(m?" "+m+" daqiqa":""):Math.max(1,m)+" daqiqa";return ms>0?t+" qoldi":t+" oldin tugagan"}
+function cnt(){var n=new Date(),a={ok:0,wt:0,no:0};TS.forEach(t=>{if(t[3])a.ok++;else if(n>t[2])a.no++;else a.wt++});return a}
+function sz(b){return b>=1048576?(b/1048576).toFixed(1)+" MB":Math.max(1,Math.round(b/1024))+" KB"}
+
+/* ===== kod bilan chizilgan belgilar ===== */
+var IC={
+ bk:'<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/>',
+ ho:'<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+ ta:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/>',
+ ja:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ ha:'<path d="M3 8a2 2 0 0 1 2-2h13v3"/><rect x="3" y="8" width="18" height="12" rx="3"/><circle cx="16.5" cy="14" r="1"/>',
+ sh:'<circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/>',
+ mo:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>',
+ su:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/>',
+ lf:'<path d="M15 5l-7 7 7 7"/>',rt:'<path d="M9 5l7 7-7 7"/>',dn:'<path d="M6 9l6 6 6-6"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',
+ up:'<path d="M12 16V5M7 9l5-5 5 5M5 20h14"/>',
+ im:'<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/>',
+ fi:'<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>',
+ vi:'<rect x="3" y="5" width="14" height="14" rx="3"/><path d="M17 10l4-2v8l-4-2z"/>',
+ pr:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8M10 8l4 2-4 2z"/>'
+};
+var svg=(k,w)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w||1.9}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k]}</svg>`;
+
+/* ===== tungi rejim, chiqish, navigatsiya ===== */
+function isDark(){var r=document.documentElement;return r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+function setIcon(){$("th").innerHTML=svg(isDark()?"su":"mo")}
+function theme(){var r=document.documentElement,v=isDark()?"light":"dark";r.dataset.theme=v;try{localStorage.setItem("hemis_theme",v)}catch(x){}setIcon()}
+function out(){try{["hemis_talaba","hemis_m","hemis_scn","hemis_ts","hemis_perm"].forEach(k=>sessionStorage.removeItem(k))}catch(x){}location.replace("/talaba/")}
+var T=[["Asosiy","/talaba/asosiy/","ho"],["Ta'lim","/talaba/talim/","ta"],["Jadval","/talaba/jadval/","ja"],["Hamyon","/talaba/hamyon/","ha"],["Shaxsiy","/talaba/shaxsiy/","sh"]];
+$("nv").innerHTML=T.map((t,i)=>`<a href="${t[1]}"${i==1?' aria-current="page"':""}>${svg(t[2],1.8)}${t[0]}</a>`).join("");
+function topbar(title,sub,back){return `<header class="top rise" style="--i:0"><div class="tr">${back?`<a class="ib" href="/talaba/talim/" aria-label="Ta'limga qaytish">${svg("lf")}</a>`:""}<div><h1>${title}</h1>${sub}</div></div><div class="tr"><button class="ib" id="th" aria-label="Tungi va kunduzgi rejim"></button><button class="xb" id="ex">Chiqish</button></div></header>`}
+function wire(){$("th").onclick=theme;$("ex").onclick=out;setIcon();
+ var h=$("hr");if(h&&matchMedia("(hover:hover)").matches&&!rm())h.addEventListener("pointermove",e=>{var r=h.getBoundingClientRect();h.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");h.style.setProperty("--my",((e.clientY-r.top)/r.height*100)+"%")})}
+
+var COL=["#7C5CD6","#3B82F6","#22A06B","#F59E0B"];
+var ART='<svg class="art" viewBox="0 0 230 154" fill="none" aria-hidden="true"><defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EADFFF"/><stop offset="1" stop-color="#8FB4F0"/></linearGradient></defs>'
++'<g class="spin"><circle cx="150" cy="62" r="56" stroke="#fff" stroke-opacity=".2" stroke-dasharray="3 7"/></g>'
++'<circle cx="150" cy="62" r="36" stroke="#fff" stroke-opacity=".16"/><circle cx="150" cy="62" r="76" stroke="#fff" stroke-opacity=".08"/>'
++'<g class="f1"><g transform="rotate(-6 156 70)"><rect x="116" y="74" width="82" height="16" rx="4" fill="#F59E0B"/><rect x="120" y="58" width="74" height="16" rx="4" fill="url(#ag)"/><rect x="112" y="42" width="80" height="16" rx="4" fill="#7FE0B5"/><path d="M122 50h30M126 66h30M122 82h30" stroke="#2B2370" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/></g></g>'
++'<g class="f2"><rect x="170" y="12" width="30" height="22" rx="4" fill="#fff" fill-opacity=".92"/><path d="M180 18l9 5-9 5z" fill="#7C5CD6"/></g>'
++'<circle class="f3" cx="104" cy="118" r="6" fill="#fff" fill-opacity=".35"/><circle class="f3" cx="92" cy="32" r="3.500" fill="#fff" fill-opacity=".45"/></svg>';
+
+var FN=Object.keys(TP),DS=FN.reduce((a,k)=>a+TP[k].length,0);
+function fans(){return FN.map((f,i)=>{var bs=LB.filter(b=>b[0]==f),ds=TP[f];
+ return`<details class="fan rise" style="--i:${i+2};--a:${COL[i%4]}"${i==0?" open":""}><summary><div class="n">${i+1}</div><div class="g"><b>${esc(f)}</b><span class="mut">${ds.length} ta dars${bs.length?" · "+bs.length+" ta adabiyot":""}</span></div><svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC.dn}</svg></summary>
+  <div class="fb">${bs.length?`<div class="lab">Adabiyotlar</div>`+bs.map(b=>`<div class="lr"><div class="bk">${svg("bk")}</div><div class="g"><b>${esc(b[1])}</b><span class="mut">${esc(b[2])}</span></div><button class="ob" data-o="1">Ochish</button></div>`).join(""):""}
+  <div class="lab">Darslar va prezentatsiyalar</div>${ds.map((d,j)=>`<div class="lr"><div class="dn">${j+1}</div><div class="g"><b>${esc(d)}</b><span class="mut">${j+1}-dars</span></div><button class="go" data-f="${i}" data-d="${j}">Prezentatsiya</button></div>`).join("")}</div></details>`}).join("")}
+
+/* ===== prezentatsiya ko'rinishi (namuna: haqiqiy fayl hali ulanmagan) ===== */
+var pvI=0,pvF=0,pvD=0,pvOp=null,tx=null;
+function slides(){var f=FN[pvF],d=TP[f][pvD];
+ return[`<div class="sl"><span class="tg">Prezentatsiya · namuna</span><h3>${esc(d)}</h3><p>${esc(f)} · ${pvD+1}-dars</p></div>`,
+  `<div class="sl"><span class="tg">Dars rejasi · namuna</span><h3>Reja</h3><ol><li>Kirish</li><li>Asosiy qism</li><li>Xulosa</li></ol></div>`,
+  `<div class="sl wn"><span class="tg">Eslatma</span><h3>Fayl hali ulanmagan</h3><p>O'qituvchi yuklagan prezentatsiya fayli shu yerda ko'rinadi. Hozir faqat ko'rinish namunasi.</p></div>`]}
+function pvDraw(){var S=slides();$("pst").innerHTML=S[pvI];$("pc").textContent=(pvI+1)+" / "+S.length;
+ $("pd").innerHTML=S.map((s,i)=>`<i class="${i==pvI?"on":""}"></i>`).join("");$("pp").disabled=pvI==0;$("pn").disabled=pvI==S.length-1;
+ $("pp").style.opacity=pvI==0?".4":"";$("pn").style.opacity=pvI==S.length-1?".4":""}
+function pvOpen(f,d,op){pvF=f;pvD=d;pvI=0;pvOp=op;var t=TP[FN[f]][d];
+ $("pv").innerHTML=`<div class="ph"><div style="min-width:0"><span>${esc(FN[f])} · ${d+1}-dars</span><b>${esc(t)}</b></div><button class="ib" id="pxc" aria-label="Yopish">${svg("x")}</button></div>
+  <div class="stg" id="pst" aria-live="polite"></div><div class="dts" id="pd"></div>
+  <div class="ctl" style="margin-top:12px"><button class="ib" id="pp" aria-label="Oldingi slayd">${svg("lf")}</button><span id="pc"></span><button class="ib" id="pn" aria-label="Keyingi slayd">${svg("rt")}</button></div>`;
+ $("pv").classList.remove("hid");document.body.style.overflow="hidden";
+ $("pxc").onclick=pvShut;$("pp").onclick=()=>pvGo(-1);$("pn").onclick=()=>pvGo(1);
+ var st=$("pst");st.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});st.addEventListener("touchend",e=>{if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)pvGo(dx<0?1:-1)},{passive:true});
+ pvDraw();$("pn").focus()}
+function pvGo(n){var L=slides().length,k=pvI+n;if(k<0||k>=L)return;pvI=k;pvDraw()}
+function pvShut(){$("pv").classList.add("hid");$("pv").innerHTML="";document.body.style.overflow="";if(pvOp&&document.contains(pvOp))pvOp.focus()}
+document.addEventListener("keydown",e=>{if($("pv").classList.contains("hid"))return;if(e.key=="Escape")pvShut();else if(e.key=="ArrowRight")pvGo(1);else if(e.key=="ArrowLeft")pvGo(-1)});
+
+function render(){
+ $("m").innerHTML=`${topbar("Adabiyotlar",`<span class="mut">${FN.length} fan · ${DS} ta dars</span>`,true)}
+ <section class="hero rise" style="--i:1" id="hr" aria-label="Adabiyotlar"><small>Fanlar bo'yicha</small>${ART}<span class="big">${DS} ta dars prezentatsiyasi</span><span class="hs">${FN.length} fan, har bir dars uchun</span></section>
+ <div class="sec rise" style="--i:2"><h2>Fanlar</h2><span class="mut">${FN.length} ta</span></div>
+ <div class="fans" id="fn">${fans()}</div>
+ <p class="note rise" style="--i:6">Fanlar, mavzular va adabiyotlar namuna (demo) ma'lumotlar. Prezentatsiya fayllari hali ulanmagan, ko'rinish namunasi chiqadi.</p>`;
+ wire();
+ $("fn").onclick=e=>{var b=e.target.closest&&e.target.closest("button");if(!b)return;
+  if(b.dataset.f!==undefined)pvOpen(+b.dataset.f,+b.dataset.d,b);else if(b.dataset.o)toast("Fayl tez orada ulanadi")}}
+render();
+
+}
+</script></body></html>
